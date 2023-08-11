@@ -1,0 +1,68 @@
+@media screen and (max-width: 768px) {
+    .text-center > h1 {
+        font-size: 2,5rem;
+    }
+    .helo{
+        text-align: justify;
+
+    }
+    .modal-body{
+        font-weight: 300;
+    }
+
+    .navbar-brand{
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .nav-item:hover{
+        background:#15a763;
+    }
+    .nav-item{
+        text-align: center;
+    }
+    .dropdown-menu{
+        text-align: center;
+        border: none;
+        border-radius: 0px;
+    }
+    .dropdown-divider{
+        background-color: aliceblue;
+        height: 2px;
+    }
+    .nav-item{
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .text-center > h1 {
+        font-size: 2rem;
+    }
+    .helo{
+        text-align: justify;
+
+    }
+    .modal-body{
+        font-weight: 300;
+    }
+
+    .navbar-brand{
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .nav-item:hover{
+        background:#15a763;
+    }
+    .nav-item{
+        text-align: center;
+    }
+    .dropdown-menu{
+        text-align: center;
+        border: none;
+        border-radius: 0px;
+    }
+    .dropdown-divider{
+        background-color: aliceblue;
+        height: 2px;
+    }
+}

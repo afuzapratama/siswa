@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+.text-center > h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #0c0c0c;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.helo{
+    border: 1px solid #000;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.feather-10{
+    font-size: 5px;
+}
+
+.modal-backdrop.modal-backdrop-static {
+    pointer-events: none; /* Disable click events on the backdrop */
+}
+
+/* Ganti tampilan input file */
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+    
+  .custom-file-input:hover::before {
+    background: linear-gradient(to bottom, #0056b3 0%, #007bff 100%);
+  }
+  
+  .custom-file-input:active::before {
+    background: linear-gradient(to bottom, #0056b3 0%, #007bff 100%);
+  }
+  
+  /* Sembunyikan nama file yang dipilih */
+  .custom-file-label::after {
+    content: none;
+  }
+
+.nav-link{
+    font-size: 1rem;
+    font-weight: 700;
+    color: #faf6f6;
+    text-transform: uppercase;
+}
+.nav-link:hover{
+    color: #e4f310;
+}
+.nav-link:active{
+    color: #e4f310;
+}
+.nav-link:focus{
+    color: #e4f310;
+}
+.highlighted {
+    color: #e4f310 !important;
+}
+
+.dropdown-item{
+    font-size: 0,8rem;
+    font-weight: 500;
+    color: #faf6f6;
+    text-transform: uppercase;
+}
+.dropdown-item:hover{
+ background: #15a763;
+ color: #e4f310;
+}
+.navbar-toggler{
+    border: 1px solid #fff;
+}
+.navbar-toggler:focus{
+    border: 1px solid #fff;
+    box-shadow: none;
+}
+
+.img-backgroud-1{
+    width: 60px;
+    position: absolute;
+    z-index: -1;
+}
+.card{
+    position: relative;
+    z-index: 2;
+}
