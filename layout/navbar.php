@@ -8,6 +8,7 @@ $index = '';
 $tugas = '';
 $materi = '';
 $komunitas = '';
+$sofware = '';
 
 if ($curretPage == 'index.php') {
     $index = 'active';
@@ -17,6 +18,8 @@ if ($curretPage == 'index.php') {
     $materi = 'active';
 } elseif ($curretPage == 'komunitas.php') {
     $komunitas = 'active';
+} elseif ($curretPage == 'software.php') {
+    $sofware = 'active';
 }
 
 
@@ -24,7 +27,7 @@ echo '
 <nav class="navbar navbar-expand-lg bg-success">
     <div class="container">
         <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i data-feather="menu" id="menu-icon"></i> menu
+            <i data-feather="menu" id="menu-icon"></i><span id="btn-menu" > menu</span>
         </button>
             <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
@@ -36,6 +39,9 @@ echo '
             </li>
             <li class="nav-item">
                 <a class="nav-link ' . $materi . '" href="materi.php">Materi</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link ' . $sofware . '" href="software.php">Software</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link ' . $komunitas . '" href="komunitas.php">Komunitas</a>

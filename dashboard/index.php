@@ -2,7 +2,7 @@
 include '../layout/header.php';
 ?>
 <div class="container">
-    <div class="col-lg-12 mt-4">
+    <div class="col-lg-12 mt-2">
         <div class="row">
             <div class="col-6 mb-3">
                 <div class="card">
