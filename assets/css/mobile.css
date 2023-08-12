@@ -44,5 +44,25 @@
     .judul-materi{
         font-size: 0.8rem;
     }
+    .judul-thread{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .day-created{
+        font-size: 13px !important;
+    }
+    .mobile-notif{
+        display: block !important;
+    }
+    .pc-notif{
+        display: none !important;
+    }
+    .online-test-font{
+        font-size: 0.8rem !important;
+        background: #87c7a9 !important;
+        color: #000 !important;
+        padding: 3px 5px 3px 5px !important;
+        border-radius: 11px !important;
+    }
 }
 

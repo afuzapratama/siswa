@@ -112,3 +112,24 @@ footer {
 .badge{
     margin-left: 10px;
 }
+
+.badge>svg{
+    width: 15px;
+}
+
+.judul-thread{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.mobile-notif{
+    display: none;
+}
+.pc-notif{
+    display: block;
+}
+
+.online-test-font{
+    background: #87c7a9 ;
+    color: #000;
+}
