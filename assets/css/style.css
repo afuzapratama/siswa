@@ -64,6 +64,11 @@
 .nav-link:focus{
     color: #e4f310;
 }
+
+.navbar-nav .nav-item .nav-link.active {
+    color: #e4f310; /* Change this to the color you want */
+}
+
 .highlighted {
     color: #e4f310 !important;
 }
@@ -94,4 +99,16 @@
 .card{
     position: relative;
     z-index: 2;
+}
+.table-home{
+    width: 100%;
+}
+footer {
+    position: fixed;
+    padding: 10px 10px 10px 10px;
+    bottom: 0;
+    width: 100%;
+}
+.badge{
+    margin-left: 10px;
 }

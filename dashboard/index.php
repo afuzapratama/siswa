@@ -8,7 +8,7 @@ include '../layout/header.php';
                 <div class="card">
 
                     <div class="card-header bg-success">
-                        <h5 class="text-center text-light fw-bold">Nilai</h5>
+                        <h5 class="text-center text-light fw-bold home-info">Nilai</h5>
                     </div>
                     <div class="card-body">
                         <div class="img-backgroud-1">
@@ -34,7 +34,7 @@ include '../layout/header.php';
             <div class="col-6 mb-3">
                 <div class="card">
                     <div class="card-header bg-danger">
-                        <h5 class="text-center text-light fw-bold">Tugas Baru</h5>
+                        <h5 class="text-center text-light fw-bold home-info">Tugas Baru</h5>
                     </div>
                     <div class="card-body">
                         <div class="img-backgroud-1">
@@ -54,7 +54,7 @@ include '../layout/header.php';
             <div class="col-6 mb-3">
                 <div class="card">
                     <div class="card-header bg-primary">
-                        <h5 class="text-center text-light fw-bold">Tugas Selesai</h5>
+                        <h5 class="text-center text-light fw-bold home-info">Tugas Selesai</h5>
                     </div>
                     <div class="card-body">
                         <div class="img-backgroud-1">
@@ -74,7 +74,7 @@ include '../layout/header.php';
             <div class="col-6 mb-3">
                 <div class="card">
                     <div class="card-header bg-warning">
-                        <h6 class="text-center text-light fw-bold ">Tugas Terlewat</h6>
+                        <h5 class="text-center text-light fw-bold home-info">Tugas Terlewat</h5>
                     </div>
                     <div class="card-body">
                         <div class="img-backgroud-1">
@@ -91,9 +91,42 @@ include '../layout/header.php';
                     </div>
                 </div>
             </div>
+            <div class="col-lg-7 col-sm-12 mb-5 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center text-dark fw-bold home-info"> <i data-feather="alert-triangle"></i>
+                            Jadwal
+                            Ulangan
+                            Atau Kuis</h5>
+                    </div>
+                    <div class="card-body mx-auto">
+                        <table class="table table-borderless table-home">
+                            <tr>
+                                <td>Tanggal</td>
+                                <td>:</td>
+                                <td>12/12/2021</td>
+                            </tr>
+                            <tr>
+                                <td>Jam</td>
+                                <td>:</td>
+                                <td>12:00</td>
+                            </tr>
+                            <tr>
+                                <td>Jenis</td>
+                                <td>:</td>
+                                <td>Ulangan Harian</td>
+                            </tr>
+                            <tr>
+                                <td>Materi</td>
+                                <td>:</td>
+                                <td>Praktek</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 <?php
 include '../layout/footer.php';

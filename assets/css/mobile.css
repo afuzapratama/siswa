@@ -32,37 +32,11 @@
     .nav-item{
         margin-top: 0.5rem;
     }
-}
-
-@media screen and (max-width: 576px) {
-    .text-center > h1 {
-        font-size: 2rem;
+    .img-backgroud-1{
+        width: 42px !important;
     }
-    .helo{
-        text-align: justify;
-
-    }
-    .modal-body{
-        font-weight: 300;
-    }
-
-    .navbar-brand{
-        font-size: 1.5rem;
-        font-weight: 900;
-    }
-    .nav-item:hover{
-        background:#15a763;
-    }
-    .nav-item{
-        text-align: center;
-    }
-    .dropdown-menu{
-        text-align: center;
-        border: none;
-        border-radius: 0px;
-    }
-    .dropdown-divider{
-        background-color: aliceblue;
-        height: 2px;
+    .home-info{
+        font-size: 0.9rem;
     }
 }
+
