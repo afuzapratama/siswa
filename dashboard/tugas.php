@@ -7,11 +7,11 @@ include '../layout/header.php';
         <p class="lead">Tugas yang diberikan oleh guru</p>
     </div>
     <div class="col-12 mb-3">
-        <div class="card text-center text-uppercase">
+        <div class="card text-center">
             <div class="card-body">
-                <p class="text-center text-lowercase">File di upload dalam bentuk pdf, Kamu mengejerkan file yang di
-                    upload untuk
-                    tutorial perhatikan guru kamu saat menjelasakan.</p>
+                <p class="text-center">File diunggah dalam bentuk PDF. Kamu diharapkan untuk
+                    memperhatikan file yang diunggah untuk keperluan tutorial, dan perhatikan cara guru kamu saat
+                    menjelaskan.</p>
                 <input type="file" class="form-control mb-3" id="file" name="file" required>
                 <input type="text" class="form-control mb-3" id="judul" name="judul" placeholder="kode Tugas" required>
                 <button type="submit" class="btn btn-primary btn-sm">Upload</button>

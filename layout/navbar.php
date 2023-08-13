@@ -18,7 +18,7 @@ if ($curretPage == 'index.php') {
     $sofware = 'active';
 }
 
-$pattern = '/online-test/';
+$pattern = '/soal/';
 $linkfull = $_SERVER['PHP_SELF'];
 ?>
 <nav class="navbar navbar-expand-lg bg-success">
@@ -28,10 +28,7 @@ $linkfull = $_SERVER['PHP_SELF'];
         ?>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <div class="nav-link online-test-font">SOAL : 14</div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link online-test-font">Waktu : 8 Menit</div>
+                    <div class="nav-link online-test-font">SOAL : 15</div>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -45,7 +42,7 @@ $linkfull = $_SERVER['PHP_SELF'];
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i data-feather="menu" id="menu-icon"></i><span id="btn-menu"> menu</span>
             </button>
-            <a type="button" class="btn btn-primary text-end mobile-notif">
+            <a href="../dashboard/notification.php" type="button" class="btn btn-primary text-end mobile-notif">
                 <i data-feather="bell"></i> 9
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -68,7 +65,7 @@ $linkfull = $_SERVER['PHP_SELF'];
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
-                    <a type="button" class="btn btn-primary pc-notif">
+                    <a href="../dashboard/notification.php" type="button" class="btn btn-primary pc-notif">
                         <i data-feather="bell"></i> 9
                     </a>
                     <li class="nav-item dropdown">
