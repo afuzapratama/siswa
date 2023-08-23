@@ -46,41 +46,67 @@ include '../layout/header.php';
             );
             registerButton.prop("disabled", true);
 
-            $.ajax({
-                url: "../function/register.php",
-                method: "POST",
-                data: {
-                    username: username,
-                    email: email,
-                    password: password,
-                    kode: kode
-                },
-                success: function(data) {
-                    if (data === "sukses") {
-                        $('#form-input').hide();
+            if (username === "" || email === "" || password === "" || kode === "") {
+                $("#alert-register").html(
+                    "<div class='alert alert-danger text-center'>Semua field harus diisi.</div>");
+                registerButton.html("Register");
+                registerButton.prop("disabled", false);
+            } else if (!isValidEmail(email)) {
+                $("#alert-register").html(
+                    "<div class='alert alert-danger text-center'>Format email tidak valid.</div>");
+                registerButton.html("Register");
+                registerButton.prop("disabled", false);
+            } else {
+
+                $.ajax({
+                    url: "../function/register.php",
+                    method: "POST",
+                    data: {
+                        username: username,
+                        email: email,
+                        password: password,
+                        kode: kode
+                    },
+                    success: function(data) {
+                        console.log(data);
+
+                        if (data.status === "success") {
+                            $('#form-input').hide();
+                            alertRegister.html(
+                                "<div class='alert " + data
+                                .alert + " text-center'>" + data
+                                .message +
+                                "</div>"
+                            );
+                            $('#username, #email, #password, #kode').prop('disabled', false);
+                        } else {
+                            alertRegister.html(
+                                "<div class='alert " + data
+                                .alert + " text-center'>" + data
+                                .message +
+                                "</div>"
+                            );
+                            $('#form-input').show();
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
                         alertRegister.html(
-                            "<div class='alert alert-success text-center'>Kamu berhasil mendaftar, silahkan login username dan password di kirim ke email</div>"
+                            "<div class='alert alert-danger text-center'>Error: " +
+                            errorThrown + "</div>"
                         );
-                        $('#username, #email, #password, #kode').prop('disabled', false);
-                    } else {
-                        alertRegister.html(
-                            "<div class='alert alert-danger text-center'>Gagal mendaftar, pastikan kode benar.silahkan bertanya pada guru.</div>"
-                        );
-                        $('#form-input').show();
+                    },
+                    complete: function() {
+                        registerButton.prop("disabled", false);
+                        registerButton.html("Register");
                     }
-                },
-                error: function(xhr, textStatus, errorThrown) {
-                    alertRegister.html(
-                        "<div class='alert alert-danger text-center'>Error: " +
-                        errorThrown + "</div>"
-                    );
-                },
-                complete: function() {
-                    registerButton.prop("disabled", false);
-                    registerButton.html("Register");
-                }
-            });
+                });
+            }
         });
+        // Fungsi untuk memeriksa format email
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
     });
 </script>
 

@@ -86,8 +86,13 @@ include 'layout/header.php';
                         password: password
                     },
                     success: function(data) {
-                        if (data === 'sukses') {
-                            location.href = "dashboard/index.php";
+                        if (response.status === "setup") {
+                            // Arahkan pengguna ke halaman setup
+                            window.location.href = "/dashboard/setup-wizard.php";
+
+                        } else if (response.status === "dashboard") {
+                            // Arahkan pengguna ke halaman dashboard
+                            window.location.href = "/dashboard/index.php";
                         } else {
                             alertLogin.html(
                                 "<div class='alert alert-danger text-center'>Gagal Login. Lihat username dan password di email</div>"

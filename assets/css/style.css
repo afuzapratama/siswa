@@ -133,3 +133,16 @@ footer {
     background: #87c7a9 ;
     color: #000;
 }
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f0f0f0;
+}
+
+.list-group-item.selected {
+    background-color: #5cb85c;
+    color: white;
+}
