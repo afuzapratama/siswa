@@ -67,10 +67,10 @@ include 'layout/header.php';
             var loginButton = $('#login');
             var username = $('#username').val();
             var password = $('#password').val();
-            var remember = $('#remember').val();
+            var remember = $('#remember').prop('checked'); 
             var alertLogin = $('#alert-login');
 
-
+            console.log(remember);
             //spiner
             loginButton.html(
                 "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading..."
@@ -83,19 +83,21 @@ include 'layout/header.php';
                     method: "POST",
                     data: {
                         username: username,
-                        password: password
+                        password: password,
+                        remember: remember
                     },
                     success: function(data) {
-                        if (response.status === "setup") {
+                        if (data.status === "setup") {
                             // Arahkan pengguna ke halaman setup
                             window.location.href = "/dashboard/setup-wizard.php";
 
-                        } else if (response.status === "dashboard") {
+                        } else if (data.status === "dashboard") {
                             // Arahkan pengguna ke halaman dashboard
                             window.location.href = "/dashboard/index.php";
                         } else {
                             alertLogin.html(
-                                "<div class='alert alert-danger text-center'>Gagal Login. Lihat username dan password di email</div>"
+                                "<div class='alert alert-danger text-center'>" +
+                                data.message + "</div>"
                             );
                             loginButton.html('Login');
                         }
@@ -106,7 +108,8 @@ include 'layout/header.php';
                             errorThrown + "</div>"
                         );
                     },
-                    complete: function() {
+                    complete: function(data) {
+                        loginButton.html('Login');
                         loginButton.prop('disabled', false);
                     }
                 });
