@@ -71,6 +71,13 @@ include 'layout/header.php';
             var alertLogin = $('#alert-login');
 
             console.log(remember);
+
+            if (remember == true) {
+                remember = 1;
+            } else {
+                remember = 0;
+            }
+
             //spiner
             loginButton.html(
                 "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading..."
@@ -84,9 +91,11 @@ include 'layout/header.php';
                     data: {
                         username: username,
                         password: password,
-                        remember: remember
+                        savelogin: remember
                     },
                     success: function(data) {
+                        console.log(data);
+
                         if (data.status === "setup") {
                             // Arahkan pengguna ke halaman setup
                             window.location.href = "/dashboard/setup-wizard.php";

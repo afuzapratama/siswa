@@ -2,6 +2,8 @@
 $curretPage = $_SERVER['PHP_SELF'];
 $curretPage = explode('/', $curretPage);
 $curretPage = end($curretPage);
+
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

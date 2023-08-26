@@ -78,7 +78,7 @@ $linkfull = $_SERVER['PHP_SELF'];
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Keluar</a></li>
+                            <li><button class="dropdown-item" id="logoutButton">Keluar</button></li>
                         </ul>
                     </li>
                 </ul>

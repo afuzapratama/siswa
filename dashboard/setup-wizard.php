@@ -9,8 +9,9 @@ include '../layout/header.php';
                     <form id="wizardForm" enctype="multipart/form-data">
                         <div class="mb-3 step">
                             <h3>Tahap 1</h3>
-                            <p>Foto Terbaik Kamu</p>
+                            <p>Foto Terbaik Kamu <?= $_SESSION['username']; ?></p>
                             <hr>
+                            <div id="alert-data-1"></div>
                             <div class="container mt-3">
                                 <div class="row">
                                     <div class="col-md-6 offset-md-3">
@@ -19,7 +20,7 @@ include '../layout/header.php';
                                                 <i class="feather-32" data-feather="camera"></i>
                                                 <p>Upload Foto</p>
                                             </label>
-                                            <input type="file" id="file" accept="image/*" class="d-none">
+                                            <input type="file" name="file" id="file" accept="image/*" class="d-none">
                                             <div class="image-preview mt-3">
                                                 <img id="preview-image" src="#" alt="Preview" class="img-fluid d-none">
                                             </div>
@@ -36,11 +37,15 @@ include '../layout/header.php';
                             <div id="alert-data-2"></div>
                             <div class="mb-3">
                                 <label for="sekolah" class="form-label fw-bold">Sekolah</label>
-                                <input type="text" class="form-control" id="Sekolah" name="Sekolah" value="Sekolah" disabled>
+                                <input type="text" class="form-control" id="Sekolah" name="sekolah" value="Sekolah" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="sekolah" class="form-label fw-bold">Kelas</label>
                                 <input type="text" class="form-control" id="kelas" name="kelas" value="kelas" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sekolah" class="form-label fw-bold">Mata Pelajaran</label>
+                                <input type="text" class="form-control" id="mapel" name="mapel" value="Desain Web" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="sekolah" class="form-label fw-bold">Nama Lengkap *</label>
@@ -49,7 +54,7 @@ include '../layout/header.php';
                             <div class="mb-3">
                                 <label for="sekolah" class="form-label fw-bold">Tanggal Lahir *</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="datepicker" placeholder="Select a date" required>
+                                    <input type="text" class="form-control" name="tgl_lahir" id="datepicker" placeholder="Select a date" required>
                                 </div>
                             </div>
                         </div>
@@ -103,20 +108,41 @@ include '../layout/header.php';
         });
 
         nextBtn.click(function() {
-            if (currentStep === 1) { // Step 2
+            if (currentStep === 0) { // Step 1
+                const fileInput = $('#file');
+
+                if (fileInput[0].files.length === 0) {
+                    $('#alert-data-1').html(
+                        '<div class="alert alert-danger" role="alert">Harap unggah foto terlebih dahulu</div>'
+                    );
+                } else {
+                    const uploadedFile = fileInput[0].files[0];
+                    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.webp|\.heic|\.heif)$/i;
+
+                    if (!allowedExtensions.exec(uploadedFile.name)) {
+                        $('#alert-data-1').html(
+                            '<div class="alert alert-danger" role="alert">Hanya file gambar yang diizinkan</div>'
+                        );
+                    } else {
+                        $('#alert-data-1').html(''); // Menghapus pesan error jika valid
+                        showStep(currentStep + 1);
+                    }
+                }
+            } else if (currentStep === 1) { // Step 2
                 if (validateStep2()) {
+                    $('#alert-data-2').html(''); // Menghapus pesan error jika valid
                     showStep(currentStep + 1);
                 } else {
-                    // Show an error message or highlight the fields that need attention
                     $('#alert-data-2').html(
-                        '<div class="alert alert-danger" role="alert">Data Tidak Boleh Kosong</div>');
+                        '<div class="alert alert-danger" role="alert">Isi data terlebih dahulu</div>'
+                    );
                 }
             } else if (currentStep === 2) { // Step 3
                 if (validateStep3()) {
                     form.submit();
                 } else {
                     $('#alert-data-3').html(
-                        '<div class="alert alert-danger" role="alert">Silahkah klik check box jika sudah benar</div>'
+                        '<div class="alert alert-danger" role="alert">Silahkan klik checkbox jika sudah benar</div>'
                     );
                 }
             } else if (currentStep === steps.length - 1) {
@@ -158,23 +184,32 @@ include '../layout/header.php';
                 processData: false,
                 contentType: false,
                 success: function(data) {
+                    console.log(data);
                     // Handle the response here
-                    if (data === 'success') {
+                    if (data.status === 'success') {
                         $('#alert-data-3').html(
                             '<div class="alert alert-success" role="alert">Data Berhasil Di Simpan</div>'
                         );
-                        setInterval(function() {
-                            window.location.href = 'index.php';
-                        }, 3000);
+                        window.location.href = 'index.php';
                     } else {
                         $('#alert-data-3').html(
-                            '<div class="alert alert-danger" role="alert">Data Gagal Di Simpan</div>'
+                            '<div class="alert alert-danger" role="alert">'+ data.message +'</div>'
                         );
                         nextBtn.prop('disabled', false);
                         nextBtn.text('submit');
                         prevBtn.prop('disabled', false);
                     }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    nextBtn.prop('disabled', false);
+                    nextBtn.text('submit');
+                    prevBtn.prop('disabled', false);
+                    $('#alert-data-3').html(
+                        '<div class="alert alert-danger" role="alert">Data Gagal Di Simpan</div>'
+                    );
                 }
+    
             });
         });
 

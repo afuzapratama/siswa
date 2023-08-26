@@ -97,6 +97,33 @@ if ($curretPage == 'makeThread.php') {
 <?php
 }
 ?>
+
+<script>
+        $(document).ready(function() {
+            $("#logoutButton").click(function() {
+                // Mengirim permintaan logout ke server
+                $.ajax({
+                    url: "../function/logout.php", // Ganti dengan URL yang sesuai
+                    type: "POST",
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.status === "success") {
+                            alert(response.message);
+                            window.location.reload(); // Refresh halaman setelah logout sukses
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        alert("Terjadi kesalahan saat melakukan logout.");
+                    }
+                });
+            });
+        });
+</script>
+
+
 </body>
 
 </html>
