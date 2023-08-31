@@ -16,6 +16,8 @@ if ($curretPage == 'index.php') {
     $komunitas = 'active';
 } elseif ($curretPage == 'software.php') {
     $sofware = 'active';
+} elseif ($curretPage == 'absensi.php'){
+    $absensi = 'active';
 }
 
 $pattern = '/soal/';
@@ -49,6 +51,9 @@ $linkfull = $_SERVER['PHP_SELF'];
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link <?= $index ?>" href="../dashboard/index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= $absensi ?>" href="../dashboard/absensi.php">Absen</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?= $tugas ?>" href="../dashboard/tugas.php">Tugas</a>

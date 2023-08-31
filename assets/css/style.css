@@ -146,3 +146,11 @@ footer {
     background-color: #5cb85c;
     color: white;
 }
+
+.qrAbsen{
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
