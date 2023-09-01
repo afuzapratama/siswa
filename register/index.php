@@ -10,16 +10,16 @@ include '../layout/header.php';
         <div id="alert-register"></div>
         <div class="form-input">
             <div class="mb-3">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="false">
             </div>
             <div class="mb-3">
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" autocomplete="false">
             </div>
             <div class="mb-3">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="kode" name="kode" placeholder="Kode">
+                <input type="text" class="form-control" id="kode" name="kode" placeholder="Kode" autocomplete="false">
             </div>
             <div class="mb-3">
                 <button type="submit" id="register" class="btn btn-primary w-100 fw-bold">Register</button>
@@ -33,6 +33,7 @@ include '../layout/header.php';
 
 <script>
 $(document).ready(function() {
+
     $('#register').click(function() {
         var registerButton = $('#register');
         var username = $('#username').val();
@@ -67,6 +68,7 @@ $(document).ready(function() {
                             $('#form-input').hide();
                         }
                         displayMessage(jsonData.status, jsonData.message, jsonData.alert);
+                        clearAllFields();
                     } catch (error) {
                         displayError("Error parsing JSON response.");
                     }
@@ -97,11 +99,76 @@ $(document).ready(function() {
 
     });
 
-    // Function to check valid email format
+    $('#username').keyup(function() {
+        var username = $(this).val();
+        if (!username) {
+            clearUsernameError(); // Clear error if input is empty
+            usernameValid = false;
+         
+        } else if (!isValidUsername(username)) {
+            displayUsernameError("Username hanya boleh mengandung huruf dan angka.");
+            usernameValid = false;
+         
+        } else {
+            clearUsernameError();
+            usernameValid = true;
+         
+        }
+    });
+
+        // Add keyup event for real-time email validation
+    $('#email').keyup(function() {
+        var email = $(this).val();
+        if (!email) {
+            clearEmailError();
+            emailValid = false;
+        } else if (!isValidEmail(email)) {
+            displayEmailError("Format email tidak valid.");
+            emailValid = false;
+        } else {
+            clearEmailError();
+            emailValid = true;
+        }
+    });
+
     function isValidEmail(email) {
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+
+    function displayEmailError(message) {
+        $('#email-error').remove();
+        $('#email').addClass('is-invalid');
+        $('#email').after('<div id="email-error" class="invalid-feedback">' + message + '</div>');
+    }
+
+    function clearEmailError() {
+        $('#email-error').remove();
+        $('#email').removeClass('is-invalid');
+    }
+
+    function isValidUsername(username) {
+        var usernameRegex = /^[a-zA-Z0-9]+$/; // Only letters and numbers are allowed
+        return usernameRegex.test(username);
+    }
+
+    function clearAllFields() {
+        $('#username, #email, #password, #kode').val(''); // Reset all input fields
+        clearUsernameError();
+        clearEmailError();
+    }
+
+    function displayUsernameError(message) {
+        $('#username-error').remove(); // Remove previous error message if exists
+        $('#username').addClass('is-invalid'); // Add red border to indicate error
+        $('#username').after('<div id="username-error" class="invalid-feedback">' + message + '</div>');
+    }
+
+    function clearUsernameError() {
+        $('#username-error').remove(); // Remove error message
+        $('#username').removeClass('is-invalid'); // Remove red border
+    }
+
 });
 </script>
 

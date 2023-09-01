@@ -32,6 +32,7 @@
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <!-- Include Bootstrap Datepicker JS -->
 <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js"></script>

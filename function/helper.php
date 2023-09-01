@@ -1,13 +1,9 @@
 <?php
-require '../vendor/autoload.php';
 
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
-use Dotenv\Dotenv;
 use Ramsey\Uuid\Uuid;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
 
 function uploadFile(array $file, string $strip , string $username): ?string
 {

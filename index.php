@@ -40,16 +40,16 @@ include 'layout/header.php';
                 <div id="alert-login"></div>
                 <div class="mb-3">
                     <label for="username" class="form-label fw-bold">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="true">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label fw-bold">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="********">
                     <div class="form-check mt-2">
                         <input class="form-check-input" type="checkbox" value="" id="remember">
-                        <label class="form-check-label" for="defaultCheck1">
+                        <span class="form-check-label">
                             Remember me
-                        </label>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,6 @@ include 'layout/header.php';
             var password = $('#password').val();
             var remember = $('#remember').prop('checked'); 
             var alertLogin = $('#alert-login');
-
-            console.log(remember);
 
             if (remember == true) {
                 remember = 1;
@@ -94,8 +92,7 @@ include 'layout/header.php';
                         savelogin: remember
                     },
                     success: function(data) {
-                        console.log(data);
-
+                        
                         if (data.status === "setup") {
                             // Arahkan pengguna ke halaman setup
                             window.location.href = "/dashboard/setup-wizard.php";
@@ -132,7 +129,37 @@ include 'layout/header.php';
         });
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYXN0g5QHOjwm8ROCNHqMaokfRkogYyXI&callback=getLocation" async defer></script>
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
 
+                var geocoder = new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(lat, lng);
+
+                geocoder.geocode({'latLng': latlng}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $('#alamat').text('Alamat: ' + results[0].formatted_address);
+                        } else {
+                            $('#alamat').text('Alamat tidak ditemukan');
+                        }
+                    } else {
+                        $('#alamat').text('Gagal mendapatkan alamat');
+                    }
+                });
+            }, function(error) {
+                $('#alamat').text('Lokasi tidak tersedia: ' + error.message);
+            });
+        } else {
+            $('#alamat').text('Geolokasi tidak didukung di browser Anda');
+        }
+    }
+</script>
 <script>
     $(document).ready(function() {
         function alignModal() {
