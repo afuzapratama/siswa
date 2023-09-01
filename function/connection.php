@@ -19,7 +19,7 @@ function get_device()
 
 $servername     = "localhost";
 $username       = "root";
-$password       = "Lonteq@123";
+$password       = "";
 $dbname         = "siswa";
 
 // Create connection

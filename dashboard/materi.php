@@ -2,57 +2,59 @@
 include '../layout/header.php';
 ?>
 <div class="container">
-    <div class="col-12 mt-3">
-        <div class="card">
-            <div class="card-header bg-success text-center text-white">
-                <h5 class="fw-bold">Daftar Materi</h5>
-            </div>
-            <div class="card-body">
-                <table id="materiTabel"
-                    class="table table-striped table-bordered table-fixed-header dt-responsive wrap text-center"
-                    style="width: 100%;" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th class="text-center header-materi">Materi</th>
-                            <th class="text-center header-materi">Jenis File</th>
-                            <th class="text-center header-materi">Aksi</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="judul-materi">Algoritma</span></td>
-                            <td><span class="badge bg-info">PDF</span></td>
-                            <td><a href="#" class="badge bg-success text-decoration-none">Download</a></td>
-                        </tr>
-                        <tr>
-                            <td><span class="judul-materi">Desain web Dasar</span></td>
-                            <td><span class="badge bg-info">PPT</span></td>
-                            <td><a href="#" class="badge bg-success text-decoration-none">Download</a></td>
-                        </tr>
-                        <tr>
-                            <td><span class="judul-materi">Mengistall Sistem Oprasi Ubuntu 22.04</span></td>
-                            <td><span class="badge bg-info">PPT</span></td>
-                            <td><a href="#" class="badge bg-success text-decoration-none">Download</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card border-0">
+                <div class="card-header bg-success text-center text-white fw-bold">
+                    <h5>Daftar Materi</h5>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12 mb-4">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Cari materi...">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+                            <div class="custom-card">
+                                <img src="/assets/img/thumbnail/pdf.png" alt="Thumbnail">
+                                <h5 class="card-title">Algoritma</h5>
+                                <p class="card-text"><span class="badge bg-info">PDF</span></p>
+                                <a href="#" class="badge bg-success text-decoration-none">Download</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+                            <div class="custom-card">
+                                <img src="/assets/img/thumbnail/pdf.png" alt="Thumbnail">
+                                <h5 class="card-title">Desain Web Dasar</h5>
+                                <p class="card-text"><span class="badge bg-info">PPT</span></p>
+                                <a href="#" class="badge bg-success text-decoration-none">Download</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+                            <div class="custom-card">
+                                <img src="/assets/img/thumbnail/ppt.png" alt="Thumbnail">
+                                <h5 class="card-title">Menginstall Sistem Operasi Ubuntu 22.04</h5>
+                                <p class="card-text"><span class="badge bg-info">PPT</span></p>
+                                <a href="#" class="badge bg-success text-decoration-none">Download</a>
+                            </div>
+                        </div>
+                        <!-- Add more card elements as needed -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-$.fn.dataTable.ext.errMode = 'none';
-$(document).ready(function() {
-    $("#materiTabel").DataTable({
-        lengthChange: false,
-        pageLength: 4,
-        searching: true,
-        pagingType: 'simple',
-        scrollX: true,
-        ordering: false,
+    $(document).ready(function() {
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".custom-card").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
     });
-});
 </script>
 <?php
 include '../layout/footer.php';

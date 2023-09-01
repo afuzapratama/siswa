@@ -22,25 +22,10 @@ session_start();
     <?php
     if ($curretPage == 'makeThread.php') {
     ?>
-        <link rel="stylesheet" href="../assets/css/froala_editor.css">
-        <link rel="stylesheet" href="../assets/css/froala_style.css">
-        <link rel="stylesheet" href="../assets/css/plugins/code_view.css">
-        <link rel="stylesheet" href="../assets/css/plugins/draggable.css">
-        <link rel="stylesheet" href="../assets/css/plugins/colors.css">
-        <link rel="stylesheet" href="../assets/css/plugins/emoticons.css">
-        <link rel="stylesheet" href="../assets/css/plugins/image_manager.css">
-        <link rel="stylesheet" href="../assets/css/plugins/image.css">
-        <link rel="stylesheet" href="../assets/css/plugins/line_breaker.css">
-        <link rel="stylesheet" href="../assets/css/plugins/table.css">
-        <link rel="stylesheet" href="../assets/css/plugins/char_counter.css">
-        <link rel="stylesheet" href="../assets/css/plugins/video.css">
-        <link rel="stylesheet" href="../assets/css/plugins/fullscreen.css">
-        <link rel="stylesheet" href="../assets/css/plugins/file.css">
-        <link rel="stylesheet" href="../assets/css/plugins/quick_insert.css">
-        <link rel="stylesheet" href="../assets/css/plugins/help.css">
-        <link rel="stylesheet" href="../assets/css/third_party/spell_checker.css">
-        <link rel="stylesheet" href="../assets/css/plugins/special_characters.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+        <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <?php
     }
     ?>

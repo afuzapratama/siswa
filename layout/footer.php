@@ -50,50 +50,23 @@ if ($curretPage == 'makeThread.php') {
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js">
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
-
-    <script type="text/javascript" src="../assets/js/froala_editor.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/align.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/char_counter.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/code_beautifier.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/code_view.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/colors.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/draggable.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/emoticons.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/entities.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/file.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/font_size.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/font_family.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/fullscreen.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/image.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/image_manager.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/line_breaker.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/inline_style.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/link.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/lists.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/paragraph_format.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/paragraph_style.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/quick_insert.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/quote.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/table.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/save.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/url.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/video.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/help.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/print.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/special_characters.min.js"></script>
-    <script type="text/javascript" src="../assets/js/plugins/word_paste.min.js"></script>
-    <script>
-        (function() {
-            new FroalaEditor("#edit", {
-                spellcheck: false,
-                heightMin: 100,
-                heightMax: 300
-            });
-        })()
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    var quill = new Quill('#editor-container', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block']
+    ]
+  },
+  placeholder: 'Compose an epic...',
+  theme: 'snow'  // or 'bubble'
+});
+</script>
 <?php
 }
 ?>
