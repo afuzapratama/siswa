@@ -1,8 +1,13 @@
 <?php
 require_once '../vendor/autoload.php';
 
+
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 
 function get_device()
@@ -17,10 +22,10 @@ function get_device()
 
 
 
-$servername     = "localhost";
-$username       = "root";
-$password       = "";
-$dbname         = "siswa";
+$servername     = $_ENV['HOST_DB'];
+$username       = $_ENV['USERNAME_DB'];
+$password       = $_ENV['PASSWORD_DB'];
+$dbname         = $_ENV['DATABASE_NAME'];
 
 // Create connection
 try {
