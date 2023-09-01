@@ -75,7 +75,7 @@ $linkfull = $_SERVER['PHP_SELF'];
                     </a>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-link-dropdown dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nama Pengguna
+                            <?= $_SESSION['username'] ?>
                         </a>
                         <ul class="dropdown-menu bg-success dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="../dashboard/profil.php">Profil</a></li>
