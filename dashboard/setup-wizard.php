@@ -36,23 +36,23 @@ include '../layout/header.php';
                             <hr>
                             <div id="alert-data-2"></div>
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label fw-bold">Sekolah</label>
+                                <label class="form-label fw-bold">Sekolah</label>
                                 <input type="text" class="form-control" id="Sekolah" name="sekolah" value="Sekolah" disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label fw-bold">Kelas</label>
+                                <label class="form-label fw-bold">Kelas</label>
                                 <input type="text" class="form-control" id="kelas" name="kelas" value="kelas" disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label fw-bold">Mata Pelajaran</label>
+                                <label class="form-label fw-bold">Mata Pelajaran</label>
                                 <input type="text" class="form-control" id="mapel" name="mapel" value="Desain Web" disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label fw-bold">Nama Lengkap *</label>
+                                <label class="form-label fw-bold">Nama Lengkap *</label>
                                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" required>
                             </div>
                             <div class="mb-3">
-                                <label for="sekolah" class="form-label fw-bold">Tanggal Lahir *</label>
+                                <label class="form-label fw-bold">Tanggal Lahir *</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="tgl_lahir" id="datepicker" placeholder="Select a date" required>
                                 </div>
@@ -66,7 +66,7 @@ include '../layout/header.php';
                             <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Alamat"></textarea>
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" value="" id="check">
-                                <label class="form-check-label" for="defaultCheck1">
+                                <label class="form-check-label">
                                     Semua Data Sudah benar
                                 </label>
                             </div>

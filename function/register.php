@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 
 require_once 'connection.php';
+require_once "../function/mailsend.php";
 
 try {
 
@@ -58,28 +59,20 @@ try {
                         // Data berhasil disimpan, kirim email
                         $to = $email;
                         $subject = "Pendaftaran Student Learning";
-                        $message = "Selamat data bak,\n\n"
+                        $message = "\n\n"
                             . "Data registrasi kamu:\n"
                             . "Username: $username\n"
                             . "Password: $raw_password\n\n"
-                            . "Selamat belajar nak!";
+                            . "Selamat belajar !";
 
-                        $headers = "From: Bapak Afuza Pratama,S.Kom\r\n"
-                            . "Reply-To: focusme@i.nemail.site\r\n"
-                            . "Content-Type: text/plain; charset=UTF-8\r\n";
-
-                        if (mail($to, $subject, $message, $headers)) {
+                        sendmail($to, $subject, $message);
+                        
                             $response = array(
                                 "status" => "success",
                                 "message" => "Kamu berhasil mendaftar, silahkan login. Data username dan password telah dikirim ke email.",
                                 "alert" => "alert-success"
                             );
-                        } else {
-                            $response = array(
-                                "status" => "error",
-                                "message" => "Gagal mengirim email. Silahkan hubungi administrator."
-                            );
-                        }
+
                     } else {
                         $response = array(
                             "status" => "error",
