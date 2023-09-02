@@ -1,6 +1,13 @@
 <footer class="fixed-bottom bg-success">
-    <div class="container text-center">
-        <span class="text-light">Made with <i class="text-danger">♥</i> <a class="text-decoration-none text-light" href="https://afuza.dev">afuza.dev</a></span>
+    <div class="row">
+        <div class="col-3">
+        <img src="../assets/img/positivessl_trust.png">
+        </div>
+        <div class="col-6">
+        <div class="container text-center">
+        <span class="text-light">Made with <i class="text-danger">♥</i></span>
+    </div>
+        </div>
     </div>
 </footer>
 
