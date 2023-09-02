@@ -1,7 +1,10 @@
 <footer class="fixed-bottom bg-success">
     <div class="row">
         <div class="col-3">
-        <img src="../assets/img/positivessl_trust.png">
+        <script language="JavaScript" type="text/javascript">
+TrustLogo("https://siswa.life/assets/img/positivessl_trust.png", "CL1", "none");
+</script>
+<a  href="https://www.positivessl.com/" id="comodoTL" style="text-decoration: none; color:white;">Positive SSL Wildcard</a>
         </div>
         <div class="col-6">
         <div class="container text-center">
